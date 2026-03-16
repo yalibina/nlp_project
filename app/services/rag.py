@@ -1,6 +1,8 @@
 from app.models import RAGDocument, RAGQuery, RAGResult
 from app.telemetry import trace, record_metric
 
+from app.core.qdrant_manager import HistoryQdrantManager 
+
 class RAGService:
     """Stub for vector DB operations (Chroma / Qdrant / Weaviate)."""
 
