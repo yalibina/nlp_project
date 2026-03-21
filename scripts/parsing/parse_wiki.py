@@ -8,6 +8,7 @@ from natasha import (
     NewsMorphTagger,
     NewsNERTagger
 )
+from natasha.extractors import DatesExtractor
 import re
 import json
 from transformers import AutoTokenizer
@@ -18,15 +19,15 @@ import warnings
 # полностью скрыть все DeprecationWarning
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
+
 '''
 Extracting metadata
 '''
 
-# year_pattern = r"\b(8\d{2}|9\d{2}|1\d{3}|200\d|201[0-3])\b(?:\s*(?:г\.|года|год))?"
-year_pattern = r"\b([1-9]\d{0,3}|200\d|201[0-4])\b(?:\s*(?:г\.|года|год))?"
-CENTURY_ROMAN = r'(?:XXI|XX|XIX|XVIII|XVII|XVI|XV|XIV|XIII|XII|XI|X|IX|VIII|VII|VI|V|IV|III|II|I)'
-century_pattern = rf'\b({CENTURY_ROMAN})\s*(?:век[а]?|в\.)\b'
-range_pattern   = rf'\b({CENTURY_ROMAN})[–-]({CENTURY_ROMAN})\s*(?:век[а]?|в\.)\b'
+year_pattern = r"\b([1-9]\d{2,3})\b\s*(?:г\.|года|год|гг\.)"
+CENTURY_ROMAN = r'(?:XX|XIX|XVIII|XVII|XVI|XV|XIV|XIII|XII|XI|X|IX|VIII|VII|VI|V|IV|III|II|I)'
+century_pattern = rf'\b({CENTURY_ROMAN})\s*(?:век(?:а)?|в\.?)'
+range_pattern = rf'\b({CENTURY_ROMAN})[–-]({CENTURY_ROMAN})\s*(?:век(?:а)?|вв?\.?)'
 
 def roman_to_int(s):
     roman = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
@@ -41,12 +42,27 @@ def roman_to_int(s):
         prev = val
     return total
 
+segmenter = Segmenter()
+morph_vocab = MorphVocab()
+emb = NewsEmbedding()
+morph_tagger = NewsMorphTagger(emb)
+ner_tagger = NewsNERTagger(emb)
+dates_extractor = DatesExtractor(morph_vocab)
+
 def extract_dates(text):
     years = set()
     centuries = set()
 
     for y in re.findall(year_pattern, text):
         years.add(int(y))
+    try:
+        dates_natasha = dates_extractor(text)
+        for date in dates_natasha:
+            if date.fact.year:
+                years.add(int(date.fact.year))
+    except Exception as e:
+        # можно логировать, но не падать
+        pass
 
     for c in re.findall(century_pattern, text):
         centuries.add(roman_to_int(c))
@@ -65,11 +81,6 @@ def extract_dates(text):
         "centuries": sorted(centuries)
     }
 
-segmenter = Segmenter()
-morph_vocab = MorphVocab()
-emb = NewsEmbedding()
-morph_tagger = NewsMorphTagger(emb)
-ner_tagger = NewsNERTagger(emb)
 
 def extract_entities(text):
     doc = Doc(text)
