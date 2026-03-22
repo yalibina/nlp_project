@@ -89,7 +89,7 @@ class HistoryQdrantManager:
             print("Коллекция уже существует")
 
 
-    def insert_facts(self, facts: list, batch_size: int = 32):
+    def insert_facts(self, facts: list, batch_size: int = 32, offset = 0):
 
         dense_vectors = self.dense_model.encode([fact["text"] for fact in facts], batch_size=batch_size).tolist()
 
@@ -100,7 +100,7 @@ class HistoryQdrantManager:
         points = [0 for _ in range(len(facts))]
         for i in range(len(facts)):            
             point = PointStruct(
-                id=i, # если хочется рандом то есть uuid64 а если хэш то uuid65 я же рассчитываю что за 1 раз бд сделаем
+                id=offset+i, # если хочется рандом то есть uuid64 а если хэш то uuid65 я же рассчитываю что за 1 раз бд сделаем
                 vector={
                     "texts_transformer": dense_vectors[i],
                     "texts_BM25": SparseVector(
@@ -123,11 +123,12 @@ class HistoryQdrantManager:
             points=points
         )
         print(f"Успешно загружено {len(facts)} фактов")
+        return len(facts)
 
     def find_answer(self, question: str, limit: int = 7, batch_size: int = 32, exact_years: list = None):
         # limit должен быть такой чтобы у модельки предсказателя осталось не меньше нескольких тысяч токенов для пресказания ответв
         # для примера у одной гугловской модели 32 768 а у нас контекст эмбедера 512 => примерно такой же размер чанка =>  можно хоть 50, но едва ли больше 10 надо
-        RADIUS = 2
+        RADIUS = 3
         question_dense = self.dense_model.encode(question, batch_size=batch_size).tolist()
 
         question_sparse_raw = list(self.sparse_model.embed([self.lemmatize_text(question)]))[0]

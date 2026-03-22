@@ -14,7 +14,7 @@ class RAGDocument(BaseModel):
 
 class RAGQuery(BaseModel):
     query: str
-    top_k: int = 7
+    top_k: int = 12
 
 class RAGResult(BaseModel):
     documents: List[RAGDocument]

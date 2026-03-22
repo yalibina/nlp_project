@@ -10,7 +10,7 @@ morph_vocab = MorphVocab()
 emb = NewsEmbedding()
 morph_tagger = NewsMorphTagger(emb)
 dates_extractor = DatesExtractor(morph_vocab)
-        
+
 
 class Orchestrator:
     """Central coordinator: RAG retrieve → LLM complete pipeline."""
@@ -27,6 +27,7 @@ class Orchestrator:
         llm_response = await llm_service.complete(
             LLMRequest(query=message.text, context=context)
         )
+        print(message.text)
         answer = llm_response.answer
         print(answer)
         matches = list(dates_extractor(answer))
@@ -34,7 +35,7 @@ class Orchestrator:
         if len(matches) > 0:
             exact_years = [match.fact.year for match in matches if match.fact.year is not None]
             if exact_years and max(exact_years) >= 2014:  # то есть в ответе ллмки есть упоминание 2014 - это и случаи когда она выдает свой промпт и когда она отвечает на вопрос запрещенный
-                    return "Прошу прощения, я не знаю ответ на этот вопрос"
+                    return "Прошу прощения, я не знаю ответ на этот вопрос или не могу на него ответить, попробуйте переформулировать или задать другой вопрос!"
         return answer
 
 orchestrator = Orchestrator()
