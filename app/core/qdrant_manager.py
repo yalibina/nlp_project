@@ -243,7 +243,7 @@ class HistoryQdrantManager:
 
         search_result = self.find_answer(question, limit, batch_size, exact_years)
 
-        if len(search_result) == 0:
+        if len(search_result) == 0 or  (exact_years and max(exact_years) >= 2014):
             return "НИЧЕГО НЕ НАШЕЛ НЕ НАДО ТЫКАТЬ ПО API ЛИШНИЙ РАЗ НЕЙРОНКУ!!!"
         else:
             if exact_years:
@@ -253,5 +253,7 @@ class HistoryQdrantManager:
                     if match.fact.day:
                         if str(match.fact.day) not in lemm_result:
                             return "НИЧЕГО НЕ НАШЕЛ НЕ НАДО ТЫКАТЬ ПО API ЛИШНИЙ РАЗ НЕЙРОНКУ!!!"
-      
-            return ' '.join([text for text, _ in search_result])
+
+            # так как ожидается в боте список текстов то не буду склеивать - TO DO - Add metadata
+            # return ' '.join([text for text, _ in search_result]) 
+            return [text for text, _ in search_result]

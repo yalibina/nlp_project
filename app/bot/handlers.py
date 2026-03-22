@@ -9,19 +9,7 @@ router = Router()
 
 @router.message(Command("start"))
 async def cmd_start(message: Message):
-    await message.answer("Hello! Send me a question or use /add <text> to index a document.")
-
-@router.message(Command("add"))
-async def cmd_add(message: Message):
-    """Add a document to RAG: /add <content>"""
-    content = message.text.removeprefix("/add").strip()
-    if not content:
-        await message.answer("Usage: /add <document content>")
-        return
-
-    doc = RAGDocument(id=str(message.message_id), content=content)
-    ok = await orchestrator.add_document(doc)
-    await message.answer("✅ Document indexed." if ok else "❌ Indexing failed.")
+    await message.answer("Привет! Я Хронорус. Задайте мне любой вопрос по истории России!")  # or use /add <text> to index a document.
 
 @router.message(F.text)
 async def handle_query(message: Message):
