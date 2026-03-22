@@ -12,12 +12,12 @@ class Orchestrator:
         rag_result = await rag_service.retrieve(RAGQuery(query=message.text))
         context = [doc.content for doc in rag_result.documents]
 
+        if not context:
+            return "Прошу прощения, я не знаю ответ на этот вопрос. Пожалуйста, попробуйте переформулировать или спросить конкретнее. Если Вы используете даты, то убедитесь, что они в правильном формате!"
+
         llm_response = await llm_service.complete(
             LLMRequest(query=message.text, context=context)
         )
         return llm_response.answer
-
-    async def add_document(self, document: RAGDocument) -> bool:
-        return await rag_service.add(document)
 
 orchestrator = Orchestrator()

@@ -3,21 +3,21 @@ from app.telemetry import trace, record_metric
 
 from app.core.qdrant_manager import HistoryQdrantManager 
 
+qdrant_manager = HistoryQdrantManager()
+
 class RAGService:
     """Stub for vector DB operations (Chroma / Qdrant / Weaviate)."""
 
     @trace("rag.retrieve")
     async def retrieve(self, query: RAGQuery) -> RAGResult:
         """Embed query and fetch top-k nearest documents from the vector DB."""
-        # TODO: embed query → vector_db.query(vector, top_k)
-        record_metric("rag.retrieve.top_k", query.top_k)
-        return RAGResult(documents=[])
-
-    @trace("rag.add")
-    async def add(self, document: RAGDocument) -> bool:
-        """Embed and upsert a document into the vector DB."""
-        # TODO: embed document.content → vector_db.upsert(id, vector, metadata)
-        record_metric("rag.add.count", 1.0)
-        return True
+        question = query.query[:500].strip()
+        result = qdrant_manager.query_to_db(question=question, limit=query.top_k)
+        if result == "НИЧЕГО НЕ НАШЕЛ НЕ НАДО ТЫКАТЬ ПО API ЛИШНИЙ РАЗ НЕЙРОНКУ!!!":
+            documents = []
+        else:
+            documents = [RAGDocument(content=chunk) for chunk in result]
+        record_metric("rag.retrieve.top_k", len(documents))
+        return RAGResult(documents=documents)
 
 rag_service = RAGService()
