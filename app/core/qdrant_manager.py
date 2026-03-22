@@ -127,7 +127,7 @@ class HistoryQdrantManager:
     def find_answer(self, question: str, limit: int = 7, batch_size: int = 32, exact_years: list = None):
         # limit должен быть такой чтобы у модельки предсказателя осталось не меньше нескольких тысяч токенов для пресказания ответв
         # для примера у одной гугловской модели 32 768 а у нас контекст эмбедера 512 => примерно такой же размер чанка =>  можно хоть 50, но едва ли больше 10 надо
-        RADIUS = 1
+        RADIUS = 2
         question_dense = self.dense_model.encode(question, batch_size=batch_size).tolist()
 
         question_sparse_raw = list(self.sparse_model.embed([self.lemmatize_text(question)]))[0]
@@ -243,7 +243,7 @@ class HistoryQdrantManager:
 
         search_result = self.find_answer(question, limit, batch_size, exact_years)
 
-        if len(search_result) == 0 or  (exact_years and max(exact_years) >= 2014):
+        if len(search_result) == 0:
             return "НИЧЕГО НЕ НАШЕЛ НЕ НАДО ТЫКАТЬ ПО API ЛИШНИЙ РАЗ НЕЙРОНКУ!!!"
         else:
             if exact_years:
