@@ -37,7 +37,21 @@ async def handle_query(message: Message):
     rag_logger.finish_request(
         entry=log_entry,
         response=answer,
-        label=rag_answer.status,
+        label=map_status_to_label(rag_answer.status),
         error=rag_answer.error
     )
     await message.answer(answer)
+
+def map_status_to_label(status: str) -> ResponseLabel:
+    status = status.lower().strip()
+
+    mapping = {
+        "success": ResponseLabel.SUCCESS,
+        "off_topic": ResponseLabel.OFF_TOPIC,
+        "after_2014": ResponseLabel.AFTER_2014,
+        "no_info_in_db": ResponseLabel.NO_INFO_IN_DB,
+        "no_info_other": ResponseLabel.NO_INFO_OTHER,
+        "error": ResponseLabel.ERROR,
+    }
+
+    return mapping.get(status, ResponseLabel.ERROR)

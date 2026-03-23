@@ -16,11 +16,9 @@ from pathlib import Path
 from threading import Lock
 from typing import Optional
 
-# ── Стандартный Python-логгер (консоль / файл) ─────────────────────────────
 std_logger = logging.getLogger("chronorus.monitoring")
 
 
-# ── Метка результата ────────────────────────────────────────────────────────
 class ResponseLabel(str, Enum):
     """Возможные исходы обработки запроса."""
 
@@ -28,6 +26,7 @@ class ResponseLabel(str, Enum):
     OFF_TOPIC = "off_topic"                   # Не по истории России
     AFTER_2014 = "after_2014"                 # Вопрос касается событий после 2014
     NO_INFO_IN_DB = "no_info_in_db"           # Нет информации в базе
+    NO_INFO_OTHER = "no_info_other"
     ERROR = "error"                           # Техническая ошибка
 
     def human_readable(self) -> str:
@@ -36,11 +35,10 @@ class ResponseLabel(str, Enum):
             self.OFF_TOPIC:   "Не ответил: вопрос не по истории России",
             self.AFTER_2014:  "Не ответил: вопрос после 2014 года",
             self.NO_INFO_IN_DB: "Не ответил: нет информации в БД",
+            self.NO_INFO_OTHER: "Не ответил: недостаточно информации",
             self.ERROR:       "Техническая ошибка",
         }[self]
 
-
-# ── Запись лога ─────────────────────────────────────────────────────────────
 @dataclass
 class RAGLogEntry:
     """Одна запись метрик по одному запросу пользователя."""
@@ -48,7 +46,7 @@ class RAGLogEntry:
     # Идентификация
     request_id: str = field(default_factory=lambda: str(uuid.uuid4()))
     timestamp: str = field(default_factory=lambda: datetime.utcnow().isoformat())
-    user_id: Optional[int] = None          # Telegram user_id
+    user_id: Optional[int] = None
 
     # Тексты
     user_query: str = ""
