@@ -19,10 +19,16 @@ import warnings
 # полностью скрыть все DeprecationWarning
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-
 '''
 Extracting metadata
 '''
+
+segmenter = Segmenter()
+morph_vocab = MorphVocab()
+emb = NewsEmbedding()
+morph_tagger = NewsMorphTagger(emb)
+ner_tagger = NewsNERTagger(emb)
+dates_extractor = DatesExtractor(morph_vocab)
 
 year_pattern = r"\b([1-9]\d{2,3})\b\s*(?:г\.|года|год|гг\.)"
 CENTURY_ROMAN = r'(?:XX|XIX|XVIII|XVII|XVI|XV|XIV|XIII|XII|XI|X|IX|VIII|VII|VI|V|IV|III|II|I)'
@@ -42,13 +48,6 @@ def roman_to_int(s):
         prev = val
     return total
 
-segmenter = Segmenter()
-morph_vocab = MorphVocab()
-emb = NewsEmbedding()
-morph_tagger = NewsMorphTagger(emb)
-ner_tagger = NewsNERTagger(emb)
-dates_extractor = DatesExtractor(morph_vocab)
-
 def extract_dates(text):
     years = set()
     centuries = set()
@@ -61,7 +60,6 @@ def extract_dates(text):
             if date.fact.year:
                 years.add(int(date.fact.year))
     except Exception as e:
-        # можно логировать, но не падать
         pass
 
     for c in re.findall(century_pattern, text):
@@ -129,8 +127,6 @@ def remove_all_refs_from_wikicode(wikicode):
 
     text = re.sub(r'<ref[^>]*/>', '', text)
 
-    text = re.sub(r'\[\d+(?:–\d+)?\]', '', text)
-
     return text
 
 
@@ -139,13 +135,12 @@ def get_sections(page_text):
 
     clean_text = remove_all_refs_from_wikicode(wikicode)
 
-    # парсим уже очищенный текст заново
     wikicode = mwparserfromhell.parse(clean_text)
 
     sections = []
     for section in wikicode.get_sections(include_lead=True, include_headings=True):
         heading = section.filter_headings()
-        heading_text = heading[0].title if heading else "Lead"
+        heading_text = str(heading[0].title) if heading else "Lead"
         text = section.strip_code().strip()
         if text:
             sections.append({"heading": heading_text, "text": text})
@@ -212,6 +207,9 @@ def chunk_text_by_tokens(text, tokenizer, max_tokens=512, overlap_tokens=50):
 
     return chunks
 
+
+ignored_headings = [' См. также ', ' Источники ', ' Примечания ', ' Литература ', ' Ссылки ', ' Комментарии ']
+
 def collect_json():
     site = mwclient.Site('ru.wikipedia.org')
 
@@ -244,22 +242,30 @@ def collect_json():
             sections = get_sections(page.text())
             chunk_id = 0
             for sec in sections:
-                if sec['heading'] == ' См. также ' or sec['heading'] == ' Источники ' or sec['heading'] == ' Примечания ':
+                if sec['heading'] in ignored_headings:
                     continue
-                
+   
                 text_chunks = chunk_text_by_tokens(sec["text"], tokenizer, max_tokens=512, overlap_tokens=50)
 
+                goida_chunk = True
                 for chunk_text_content in text_chunks:
                     meta_chunk = collect_metadata(chunk_text_content)
-                    if meta_chunk['centuries']:
-                        if meta_chunk['centuries'][-1] == 21:
-                            continue
+                    for year in meta_chunk['years'][::-1]:
+                        if year >= 2014:
+                            goida_chunk = False
+                            break
+
+                    if not goida_chunk:
+                        break
+                    
                     chunk = ({
                         "document_id": doc_id,
                         "chunk_id": chunk_id,
+                        "section": sec['heading'],
                         "page_url": page_url,
                         "text": chunk_text_content
                     } | meta_chunk)
+
                     rag_chunks.append(chunk)
                     chunk_id += 1
 
