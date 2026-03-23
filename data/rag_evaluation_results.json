@@ -1,0 +1,1406 @@
+[
+  {
+    "query_id": "q01",
+    "query": "Что в Русском царстве было введено вместо Тиуна Огнищанского (Огневщика)?",
+    "expected_doc": 1,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 121,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 1,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 1996,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 1141,
+        "chunk_id": 22
+      },
+      {
+        "document_id": 1141,
+        "chunk_id": 15
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q02",
+    "query": "Какая историческая валюта обращалась на территории Российской восточной окраины в течение 1920 года?",
+    "expected_doc": 3,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 3,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 3,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 3,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 2362,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 2362,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 2362,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 2362,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 2362,
+        "chunk_id": 4
+      },
+      {
+        "document_id": 2869,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 2869,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 2869,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 2869,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 3155,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 3155,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 3155,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 3155,
+        "chunk_id": 3
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q03",
+    "query": "Какие номиналы имели банкноты читинского рубля?",
+    "expected_doc": 3,
+    "expected_chunk": 2,
+    "found_docs": [
+      {
+        "document_id": 3,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 3,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 3155,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 3,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 3090,
+        "chunk_id": 3
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q04",
+    "query": "Какое учреждение в Русском царстве XVII века занималось поминовением лиц царского дома?",
+    "expected_doc": 5,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 5,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 2386,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 1478,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 1996,
+        "chunk_id": 61
+      },
+      {
+        "document_id": 129,
+        "chunk_id": 2
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q05",
+    "query": "Какими годами в «Повести временных лет» датируются призвание варягов во главе с Рюриком и захват Киева Олегом?",
+    "expected_doc": 7,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 7,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 2698,
+        "chunk_id": 7
+      },
+      {
+        "document_id": 979,
+        "chunk_id": 10
+      },
+      {
+        "document_id": 979,
+        "chunk_id": 9
+      },
+      {
+        "document_id": 428,
+        "chunk_id": 1
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q06",
+    "query": "Какое должностное лицо в Российской империи XVIII века принимало и докладывало прошения и жалобы?",
+    "expected_doc": 9,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 1148,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 9,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 9,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 9,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 1996,
+        "chunk_id": 82
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q07",
+    "query": "Какой паровоз-памятник в Уссурийске известен тем, что в его топке в 1920 году были сожжены Сергей Лазо, Всеволод Сибирцев и Алексей Луцкий?",
+    "expected_doc": 11,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 11,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 11,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 11,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 11,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 11,
+        "chunk_id": 4
+      },
+      {
+        "document_id": 11,
+        "chunk_id": 5
+      },
+      {
+        "document_id": 1494,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 1494,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 1494,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 1494,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 1494,
+        "chunk_id": 4
+      },
+      {
+        "document_id": 1494,
+        "chunk_id": 5
+      },
+      {
+        "document_id": 1494,
+        "chunk_id": 6
+      },
+      {
+        "document_id": 2568,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 2568,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 2568,
+        "chunk_id": 2
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q08",
+    "query": "Как назывались новгородские повольники, впервые упомянутые в летописи в 1360 году?",
+    "expected_doc": 14,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 14,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 14,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 14,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 14,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 14,
+        "chunk_id": 4
+      },
+      {
+        "document_id": 14,
+        "chunk_id": 5
+      },
+      {
+        "document_id": 14,
+        "chunk_id": 6
+      },
+      {
+        "document_id": 14,
+        "chunk_id": 7
+      },
+      {
+        "document_id": 14,
+        "chunk_id": 8
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 34
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 35
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 36
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 37
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 38
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 39
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 40
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 41
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 42
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 43
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 44
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 45
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 46
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 47
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 48
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q09",
+    "query": "С какой целью Добровольческая армия проводила Армавирскую операцию 8—19 сентября 1918 года?",
+    "expected_doc": 15,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 15,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 15,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 15,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 15,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 629,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 629,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 629,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 629,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 629,
+        "chunk_id": 4
+      },
+      {
+        "document_id": 629,
+        "chunk_id": 5
+      },
+      {
+        "document_id": 1969,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 1969,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 1969,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 1969,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 2776,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 2776,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 2776,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 2776,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 2814,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 2814,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 2814,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 2814,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 2814,
+        "chunk_id": 4
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q10",
+    "query": "Какой принцип был одним из основных во внешней и внутренней политике Белого движения?",
+    "expected_doc": 16,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 16,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 1972,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 2533,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 16,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 1933,
+        "chunk_id": 21
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q11",
+    "query": "В какие века происходило формирование территории Русского государства?",
+    "expected_doc": 19,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 19,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 1996,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 1285,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 1627,
+        "chunk_id": 26
+      },
+      {
+        "document_id": 1996,
+        "chunk_id": 61
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q12",
+    "query": "Что в СССР 1980-х годов объединяло любителей авиационной техники под эгидой МАП СССР, ЦК ВЛКСМ и ДОСААФ?",
+    "expected_doc": 22,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 1285,
+        "chunk_id": 151
+      },
+      {
+        "document_id": 1285,
+        "chunk_id": 152
+      },
+      {
+        "document_id": 1285,
+        "chunk_id": 153
+      },
+      {
+        "document_id": 1285,
+        "chunk_id": 154
+      },
+      {
+        "document_id": 1285,
+        "chunk_id": 155
+      },
+      {
+        "document_id": 1285,
+        "chunk_id": 156
+      },
+      {
+        "document_id": 1285,
+        "chunk_id": 157
+      },
+      {
+        "document_id": 1285,
+        "chunk_id": 158
+      },
+      {
+        "document_id": 1285,
+        "chunk_id": 163
+      },
+      {
+        "document_id": 1285,
+        "chunk_id": 164
+      },
+      {
+        "document_id": 1285,
+        "chunk_id": 165
+      },
+      {
+        "document_id": 1285,
+        "chunk_id": 166
+      },
+      {
+        "document_id": 1285,
+        "chunk_id": 167
+      },
+      {
+        "document_id": 1285,
+        "chunk_id": 168
+      },
+      {
+        "document_id": 1285,
+        "chunk_id": 169
+      },
+      {
+        "document_id": 1509,
+        "chunk_id": 116
+      },
+      {
+        "document_id": 1509,
+        "chunk_id": 117
+      },
+      {
+        "document_id": 1509,
+        "chunk_id": 118
+      },
+      {
+        "document_id": 1509,
+        "chunk_id": 119
+      },
+      {
+        "document_id": 1509,
+        "chunk_id": 120
+      },
+      {
+        "document_id": 1509,
+        "chunk_id": 121
+      },
+      {
+        "document_id": 1509,
+        "chunk_id": 122
+      },
+      {
+        "document_id": 2588,
+        "chunk_id": 61
+      },
+      {
+        "document_id": 2588,
+        "chunk_id": 62
+      },
+      {
+        "document_id": 2588,
+        "chunk_id": 63
+      },
+      {
+        "document_id": 2588,
+        "chunk_id": 64
+      },
+      {
+        "document_id": 2588,
+        "chunk_id": 65
+      },
+      {
+        "document_id": 2588,
+        "chunk_id": 66
+      },
+      {
+        "document_id": 2588,
+        "chunk_id": 67
+      }
+    ],
+    "exact_match": false,
+    "document_match": false
+  },
+  {
+    "query_id": "q13",
+    "query": "Кто начал разработку игры «Тетрис» и в каком году?",
+    "expected_doc": 23,
+    "expected_chunk": 2,
+    "found_docs": [
+      {
+        "document_id": 23,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 23,
+        "chunk_id": 6
+      },
+      {
+        "document_id": 23,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 23,
+        "chunk_id": 4
+      },
+      {
+        "document_id": 23,
+        "chunk_id": 7
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q14",
+    "query": "Какой морской путь считается кратчайшим между Европейской частью России и Дальним Востоком?",
+    "expected_doc": 25,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 25,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 1933,
+        "chunk_id": 33
+      },
+      {
+        "document_id": 2691,
+        "chunk_id": 7
+      },
+      {
+        "document_id": 2691,
+        "chunk_id": 13
+      },
+      {
+        "document_id": 1933,
+        "chunk_id": 15
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q15",
+    "query": "Какие два торговых пути были особенно важны для Великого Новгорода до монгольского нашествия?",
+    "expected_doc": 26,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 26,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 26,
+        "chunk_id": 4
+      },
+      {
+        "document_id": 26,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 41
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 50
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q16",
+    "query": "Какой товар доминировал в экспорте Новгорода в Западную Европу?",
+    "expected_doc": 26,
+    "expected_chunk": 3,
+    "found_docs": [
+      {
+        "document_id": 26,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 26,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 47
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 50
+      },
+      {
+        "document_id": 1088,
+        "chunk_id": 44
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q17",
+    "query": "Что произошло в Колпине 9 мая 1918 года после волнений на продовольственной почве?",
+    "expected_doc": 31,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 31,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 31,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 31,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 731,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 731,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 731,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 731,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 1016,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 1016,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 1016,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 1016,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 1764,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 1764,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 1764,
+        "chunk_id": 4
+      },
+      {
+        "document_id": 1764,
+        "chunk_id": 5
+      },
+      {
+        "document_id": 1764,
+        "chunk_id": 6
+      },
+      {
+        "document_id": 1764,
+        "chunk_id": 7
+      },
+      {
+        "document_id": 1764,
+        "chunk_id": 8
+      },
+      {
+        "document_id": 3272,
+        "chunk_id": 4
+      },
+      {
+        "document_id": 3272,
+        "chunk_id": 5
+      },
+      {
+        "document_id": 3272,
+        "chunk_id": 6
+      },
+      {
+        "document_id": 3272,
+        "chunk_id": 7
+      },
+      {
+        "document_id": 3272,
+        "chunk_id": 8
+      },
+      {
+        "document_id": 3272,
+        "chunk_id": 9
+      },
+      {
+        "document_id": 3272,
+        "chunk_id": 10
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q18",
+    "query": "В чём заключалась германофобия в Российской империи и в какой период она проявлялась?",
+    "expected_doc": 62,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 62,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 62,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 682,
+        "chunk_id": 30
+      },
+      {
+        "document_id": 1996,
+        "chunk_id": 82
+      },
+      {
+        "document_id": 682,
+        "chunk_id": 50
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q19",
+    "query": "Где и когда было образовано Политическое совещание при Юдениче?",
+    "expected_doc": 65,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 65,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 2945,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 65,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 2945,
+        "chunk_id": 8
+      },
+      {
+        "document_id": 517,
+        "chunk_id": 0
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q20",
+    "query": "Что такое Исколат и на какой территории он существовал?",
+    "expected_doc": 70,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 2447,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 70,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 116,
+        "chunk_id": 6
+      },
+      {
+        "document_id": 70,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 65,
+        "chunk_id": 2
+      }
+    ],
+    "exact_match": false,
+    "document_match": true
+  },
+  {
+    "query_id": "q21",
+    "query": "По каким рекам проходил Заволоцкий путь на пути в Заволочье?",
+    "expected_doc": 71,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 71,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 1617,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 1034,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 3051,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 3067,
+        "chunk_id": 12
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q22",
+    "query": "Какие документы древней Руси и Российского государства содержали ежегодное распределение даней, собиравшихся с церквей?",
+    "expected_doc": 76,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 76,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 1526,
+        "chunk_id": 12
+      },
+      {
+        "document_id": 1996,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 1526,
+        "chunk_id": 5
+      },
+      {
+        "document_id": 1996,
+        "chunk_id": 55
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q23",
+    "query": "В каком году были впервые введены клировые ведомости?",
+    "expected_doc": 78,
+    "expected_chunk": 1,
+    "found_docs": [
+      {
+        "document_id": 78,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 78,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 1713,
+        "chunk_id": 6
+      },
+      {
+        "document_id": 2418,
+        "chunk_id": 12
+      },
+      {
+        "document_id": 78,
+        "chunk_id": 2
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q24",
+    "query": "Из каких трёх частей состояли клировые ведомости?",
+    "expected_doc": 78,
+    "expected_chunk": 2,
+    "found_docs": [
+      {
+        "document_id": 78,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 2730,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 78,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 2760,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 2760,
+        "chunk_id": 5
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q25",
+    "query": "Кем и где был организован Русский политический комитет в Польше?",
+    "expected_doc": 82,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 82,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 82,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 81,
+        "chunk_id": 6
+      },
+      {
+        "document_id": 758,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 82,
+        "chunk_id": 4
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q26",
+    "query": "Когда была осуществлена Спасская операция и против кого?",
+    "expected_doc": 86,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 86,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 2775,
+        "chunk_id": 7
+      },
+      {
+        "document_id": 302,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 2535,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 1871,
+        "chunk_id": 0
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q27",
+    "query": "С какой целью был взят Якутск в 1918 году?",
+    "expected_doc": 88,
+    "expected_chunk": 0,
+    "found_docs": [
+      {
+        "document_id": 88,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 88,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 88,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 88,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 88,
+        "chunk_id": 4
+      },
+      {
+        "document_id": 88,
+        "chunk_id": 5
+      },
+      {
+        "document_id": 1764,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 1764,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 1764,
+        "chunk_id": 4
+      },
+      {
+        "document_id": 1764,
+        "chunk_id": 5
+      },
+      {
+        "document_id": 1764,
+        "chunk_id": 6
+      },
+      {
+        "document_id": 1764,
+        "chunk_id": 7
+      },
+      {
+        "document_id": 1764,
+        "chunk_id": 8
+      },
+      {
+        "document_id": 2289,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 2289,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 2289,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 2289,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 2832,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 2832,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 2832,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 2832,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 2832,
+        "chunk_id": 4
+      },
+      {
+        "document_id": 2832,
+        "chunk_id": 5
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  },
+  {
+    "query_id": "q28",
+    "query": "Кто возглавлял академические экспедиции 1768—1774 годов и кто руководил отдельными отрядами?",
+    "expected_doc": 89,
+    "expected_chunk": 1,
+    "found_docs": [
+      {
+        "document_id": 89,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 89,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 89,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 829,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 829,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 829,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 829,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 829,
+        "chunk_id": 4
+      },
+      {
+        "document_id": 829,
+        "chunk_id": 5
+      },
+      {
+        "document_id": 829,
+        "chunk_id": 6
+      },
+      {
+        "document_id": 1736,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 1736,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 1736,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 1736,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 2663,
+        "chunk_id": 0
+      },
+      {
+        "document_id": 2663,
+        "chunk_id": 1
+      },
+      {
+        "document_id": 2663,
+        "chunk_id": 2
+      },
+      {
+        "document_id": 2663,
+        "chunk_id": 3
+      },
+      {
+        "document_id": 2663,
+        "chunk_id": 4
+      },
+      {
+        "document_id": 2951,
+        "chunk_id": 7
+      },
+      {
+        "document_id": 2951,
+        "chunk_id": 8
+      },
+      {
+        "document_id": 2951,
+        "chunk_id": 9
+      },
+      {
+        "document_id": 2951,
+        "chunk_id": 10
+      },
+      {
+        "document_id": 2951,
+        "chunk_id": 11
+      },
+      {
+        "document_id": 2951,
+        "chunk_id": 12
+      }
+    ],
+    "exact_match": true,
+    "document_match": true
+  }
+]
