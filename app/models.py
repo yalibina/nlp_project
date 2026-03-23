@@ -1,5 +1,7 @@
 from pydantic import BaseModel
 from typing import List
+from dataclasses import dataclass, field
+from typing import Optional
 
 class UserMessage(BaseModel):
     user_id: int
@@ -16,6 +18,12 @@ class RAGQuery(BaseModel):
     top_k: int = 12
 
 class RAGResult(BaseModel):
+    answer: str
+    doc_scores: list[float]
+    status: str = "success"
+    error: Optional[Exception] = None
+
+class RAGResult(BaseModel):
     documents: List[RAGDocument]
 
 class LLMRequest(BaseModel):
@@ -25,3 +33,5 @@ class LLMRequest(BaseModel):
 class LLMResponse(BaseModel):
     answer: str
     sources: List[str] = []
+
+

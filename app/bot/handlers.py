@@ -1,11 +1,18 @@
 from aiogram import Router, F
 from aiogram.types import Message
-from aiogram.filters import Command
+from aiogram.filters import CommandStart, Command
+
+import logging
 
 from app.core.orchestrator import orchestrator
 from app.models import UserMessage, RAGDocument
+from app.monitoring import RAGLogger, ResponseLabel
 
 router = Router()
+logger = logging.getLogger(__name__)
+
+# Инициализируем RAGLogger один раз (singleton)
+rag_logger = RAGLogger.get_instance(log_dir="logs")
 
 @router.message(Command("start"))
 async def cmd_start(message: Message):
@@ -19,5 +26,18 @@ async def handle_query(message: Message):
         chat_id=message.chat.id,
         text=message.text,
     )
-    answer = await orchestrator.handle_query(user_msg)
+    log_entry = rag_logger.start_request(user_id=message.from_user.id, query=message.text)
+
+    rag_answer = await orchestrator.handle_query(user_msg)
+    answer = rag_answer.answer
+    rag_logger.log_retrieval(
+        entry=log_entry,
+        docs_scores=rag_answer.doc
+    )
+    rag_logger.finish_request(
+        entry=log_entry,
+        response=answer,
+        label=rag_answer.status,
+        error=rag_answer.error
+    )
     await message.answer(answer)
