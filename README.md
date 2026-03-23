@@ -26,10 +26,13 @@
   * [`core`](core) 
     * [`orchestrator.py`](core/orchestrator.py) - RAG + LLM pipeline
     * [`qdrant_manager.py`](core/qdrant_manager.py) - запросы в БД, retrieval и управление Qdrant
+  * [`monitoring`](app/monitoring)
+    * [`rag_logger.py`](app/monitoring/rag_logger.py) - логгер
   * [`services`](services)
     * [`llm.py`](services/llm.py) - LLM генерация
     * [`rag.py`](services/rag.py) - Вызов RAG
   * [`config.py`](config.py)
+  * [`dashboard.py`](app/dashboard.py) - дэшик 
   *  [`models.py`](models.py) - классы для пайплайна
 * [`scripts`](scripts)
   * [`parsing / parse_wiki.py`](scripts/parsing/parse_wiki.py) - парсинг Википедии и разбиение на чанки
