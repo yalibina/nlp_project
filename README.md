@@ -15,6 +15,7 @@
 2. **Embeddings:** `sergeyzh/BERTA` с HF локально
 3. **LLM:** `Qwen2.5:7b` локально через `ollama`
 4. **Backend:** `aiogram`, `FastAPI`, `asyncio`
+4. **Monitoring:** `streamlit`, `watchdog`, `plotly` - локальный дашборд с метриками.
 
 Подробнее - в [отчёте](MVP_report.md)
 
