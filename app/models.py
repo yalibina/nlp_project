@@ -7,10 +7,9 @@ class UserMessage(BaseModel):
     text: str
 
 class RAGDocument(BaseModel):
-    # in MVP our RAG returns only texts without metadata and gives it to gpt
     # id: str
     content: str
-    # metadata: dict = {}
+    metadata: dict = {}
 
 class RAGQuery(BaseModel):
     query: str

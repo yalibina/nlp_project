@@ -113,7 +113,13 @@ class HistoryQdrantManager:
                     "lemm_text": lemm_text[i],
                     "years": facts[i].get("years", None),
                     "document_id": facts[i]["document_id"],
-                    "chunk_id": facts[i]["chunk_id"]
+                    "chunk_id": facts[i]["chunk_id"],
+                    "section": facts[i].get("section", None),
+                    "page_url": facts[i].get("page_url", None),
+                    "centuries": facts[i].get("centuries", None),
+                    "locs": facts[i].get("locs", None),
+                    "people": facts[i].get("people", None),
+                    "orgs": facts[i].get("orgs", None)
                 }
             )
             points[i] = point
@@ -196,6 +202,12 @@ class HistoryQdrantManager:
 
                 full_text_map = {}
                 lemm_text_map = {}
+                section = {}
+                page_url = {}
+                centuries = {}
+                locs = {}
+                people = {}
+                orgs = {}
             
                 for hit in search_result:
                     cur_doc_id = hit.payload['document_id']
@@ -217,10 +229,18 @@ class HistoryQdrantManager:
                         key = (neighbor.payload['document_id'], neighbor.payload['chunk_id'])
                         full_text_map[key] = neighbor.payload['text']
                         lemm_text_map[key] = neighbor.payload['lemm_text']
+                        section[key] = neighbor.payload['section']
+                        page_url[key] = neighbor.payload['page_url']
+                        # maybe in the future
+                        # centuries[key] = neighbor.payload['centuries']
+                        # locs[key] = neighbor.payload['locs']
+                        # people[key] = neighbor.payload['people']
+                        # orgs[key] = neighbor.payload['orgs']
+                        
 
-                return [(full_text_map[key], lemm_text_map[key]) for key, _ in sorted(full_text_map.items())]
+                return [(key[0],key[1],full_text_map[key], lemm_text_map[key], section[key], page_url[key]) for key, _ in sorted(full_text_map.items())]
             
-        return [(hit.payload["text"], hit.payload["lemm_text"]) for hit in search_result]
+        return [(hit.payload["document_id"], hit.payload["chunk_id"], hit.payload["text"], hit.payload["lemm_text"], hit.payload["section"], hit.payload["page_url"]) for hit in search_result]
 
     def query_to_db(self, question: str, limit: int = 10, batch_size: int = 32):
         matches = list(self.dates_extractor(question))
@@ -248,13 +268,22 @@ class HistoryQdrantManager:
             return "НИЧЕГО НЕ НАШЕЛ НЕ НАДО ТЫКАТЬ ПО API ЛИШНИЙ РАЗ НЕЙРОНКУ!!!"
         else:
             if exact_years:
-                lemm_result = ' '.join([lemm_text for _, lemm_text in search_result])
+                lemm_result = ' '.join([lemm_text for document_id, chunk_id, full_text, lemm_text, section, page_url in search_result])
                 for match in matches:
                     # проверка если человек спросил конкретную дату а мы нашли год но не про дату - тоже галлюцинация будет
                     if match.fact.day:
                         if str(match.fact.day) not in lemm_result:
                             return "НИЧЕГО НЕ НАШЕЛ НЕ НАДО ТЫКАТЬ ПО API ЛИШНИЙ РАЗ НЕЙРОНКУ!!!"
-
-            # так как ожидается в боте список текстов то не буду склеивать - TO DO - Add metadata
-            # return ' '.join([text for text, _ in search_result]) 
-            return [text for text, _ in search_result]
+            result = [
+                (
+                    full_text,  # Первый элемент кортежа - полный текст
+                    {           # Второй элемент - словарь метаданных (лемм текст не нужен)
+                        'document_id': document_id,
+                        'chunk_id': chunk_id,
+                        'section': section,
+                        'page_url': page_url
+                    }
+                )
+                for document_id, chunk_id, full_text, lemm_text, section, page_url in search_result
+            ]
+            return result
