@@ -22,19 +22,17 @@ class Orchestrator:
         context_with_metadata = rag_result.documents  # список кортежей, кортеж = (текст, метадата)
         sources = []
         context = []
-        for doc in context_with_metadata:
+        for (i, doc) in enumerate(context_with_metadata):
             meta = doc.metadata
             source_url = meta.get('page_url', None)
             if source_url:
                 sources.append(source_url)
-            part = f"""
-                Айди документа: {meta["document_id"]}
-                Айди чанка внутри этого документа: {meta["chunk_id"]}
-                Источник: {source_url}
-                Текст: {doc.content}
-                ---"""
+            meta_text = f"[CHUNK {i+1}] (document_id={meta["document_id"]}, chunk_id={meta["chunk_id"]}, url={source_url})\n"
+            part = meta_text + doc.content
+    
             context.append(part)
-        context = "\n\n".join(context)
+
+        context = "\n---\n".join(context) + "\n---\n"
 
         if not context_with_metadata:
             return "Прошу прощения, я не знаю ответ на этот вопрос. Пожалуйста, попробуйте переформулировать или спросить конкретнее. Если Вы используете даты, то убедитесь, что они в правильном формате!"
