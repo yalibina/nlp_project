@@ -33,7 +33,11 @@
   *  [`models.py`](models.py) - классы для пайплайна
 * [`scripts`](scripts)
   * [`parsing / parse_wiki.py`](scripts/parsing/parse_wiki.py) - парсинг Википедии и разбиение на чанки
-  * [`build_qdrant_index.py`](scripts/parsing/build_qdrant_index.py) - построение базы данных
+  * [`build_qdrant_index.py`](scripts/build_qdrant_index.py) - построение базы данных
+  * [`metrics.py`](scripts/metrics.py) - построение джсона с метриками
+* [`data`](data)
+  * [`full_bench.csv`](full_bench.csv) - золотой датасет
+  * [`rag_evaluation_results.json`](rag_evaluation_results.json) - результат поиска по золотому датасету
 * [`main.py`](main.py) - запуск бота
 * [`requirements.txt`](requirements.txt)
 
