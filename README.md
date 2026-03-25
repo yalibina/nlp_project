@@ -15,8 +15,9 @@
 2. **Embeddings:** `sergeyzh/BERTA` с HF локально
 3. **LLM:** `Qwen2.5:7b` локально через `ollama`
 4. **Backend:** `aiogram`, `FastAPI`, `asyncio`
+5. **Monitoring:** `streamlit`, `watchdog`, `plotly` - локальный дашборд с метриками.
 
-Подробнее - в [отчёте](MVP_report.md)
+Отчет по MVP: [MVP_report.md](MVP_report.md), отчет по мониторингу: [HW3_report.md](HW3_report.md)
 
 ## Структура проекта
 
@@ -26,10 +27,13 @@
   * [`core`](core) 
     * [`orchestrator.py`](core/orchestrator.py) - RAG + LLM pipeline
     * [`qdrant_manager.py`](core/qdrant_manager.py) - запросы в БД, retrieval и управление Qdrant
+  * [`monitoring`](app/monitoring)
+    * [`rag_logger.py`](app/monitoring/rag_logger.py) - логгер
   * [`services`](services)
     * [`llm.py`](services/llm.py) - LLM генерация
     * [`rag.py`](services/rag.py) - Вызов RAG
   * [`config.py`](config.py)
+  * [`dashboard.py`](app/dashboard.py) - дэшик 
   *  [`models.py`](models.py) - классы для пайплайна
 * [`scripts`](scripts)
   * [`parsing / parse_wiki.py`](scripts/parsing/parse_wiki.py) - парсинг Википедии и разбиение на чанки
